@@ -1,3 +1,4 @@
+from turtle import title
 import sklearn
 from flask import Flask, render_template, request
 from model import load, prediksi
@@ -9,7 +10,8 @@ load()
 
 @app.route('/')
 def home():
-    return render_template('template/index.html')
+    title = "Sistem Prediksi Karwayan Resign"
+    return render_template('index.html', title=title)
 
 @app.route("/predict", methods=["POST"])
 def predict():
